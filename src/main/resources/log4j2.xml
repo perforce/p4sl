@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="P4Simulink" packages="">
+  <Appenders>
+    <RollingFile name="RollingFile" fileName="${sys:user.home}/.p4simulink/p4simulink.log"
+      filePattern="${sys:user.home}/.p4simulink/$${date:yyyy-MM}/p4simulink-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <Pattern>%d{ISO8601} [%t] %-5level %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="1 MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="20" />
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="RollingFile" />
+    </Root>
+  </Loggers>
+</Configuration>

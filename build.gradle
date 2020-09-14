@@ -1,0 +1,98 @@
+/**
+ * Copyright (C) 2014 Perforce Software. All rights reserved.
+ *
+ * Please see LICENSE.txt in top-level folder of this distribution.
+ */
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java-library-distribution'
+apply plugin: 'jacoco'
+
+sourceCompatibility = 1.8
+
+project.ext.ver = project.hasProperty('ver') ? project.ext.ver : '0' 
+version = project.ext.ver
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+	compile files( 'libs/api.jar', 'libs/util.jar' )
+	compile 'com.perforce:p4java:2020.1.1999383'
+	compile 'org.apache.logging.log4j:log4j-api:2.0-rc1'
+	compile 'org.apache.logging.log4j:log4j-core:2.0-rc1'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.apache.commons:commons-exec:1.2'
+    compile 'org.apache.commons:commons-compress:1.8.1'
+    testCompile 'junit:junit:4.10'
+}
+
+jar {
+	manifest {
+		attributes( 'Bundle-Name': project.name,
+			'Mathworks-Bundle': 'true',
+			'Bundle-SymbolicName': 'com.perforce.p4simulink',
+			'Budle-Description': 'Perforce CM integration for Simulink',
+			'Budle-Vendor': 'Perforce Software',
+			'Bundle-Version': version,
+			'Specification-Title': project.name,
+			'Specification-Version': version,
+			'Bundle-Activator': 'com.mathworks.util.osgi.ServicesActivator',
+            'Services': 'com.mathworks.cmlink.api.version.r16b.CMAdapterFactory: com.perforce.p4simulink.P4AdapterFactory')
+	}
+
+    // include dependent jars (build a so-called "fat" jar)
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    } {
+        exclude "com/mathworks/**"
+    }
+}
+
+task wrapper( type: Wrapper ) {
+	gradleVersion = '1.12'
+}
+
+test {
+
+    include 'com/perforce/p4simulink/tests/**'
+
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+
+    // set heap size for the test JVM(s)
+    minHeapSize = "128m"
+    maxHeapSize = "512m"
+
+    // set JVM arguments for the test JVM(s)
+    jvmArgs '-XX:MaxPermSize=256m'
+
+    // listen to events in the test execution lifecycle
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+}
+
+jacoco {
+	toolVersion = "0.8.4"
+	reportsDir = file("$buildDir/jacoco")
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		csv.enabled false
+		html.enabled false
+	}
+}
