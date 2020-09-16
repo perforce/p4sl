@@ -1,5 +1,42 @@
+[![Support](https://img.shields.io/badge/Support-Official-green.svg)](mailto:support@perforce.com)
+
 # Perforce P4SL 
 
+## Overview
+P4SL is a Helix Core Plugin for Simulink and Matlab.
+
+## Requirements
+- Matlab 2017b or higher.	
+
+- Perforce server at Release 2017.1 or higher.
+
+- Java: full standard JDK 8 or later.  Implementation as discussed in "Known Limitations" below.
+
+- SSL: unlimited strength JCE (Java Cryptography Extension) package for 256-bit encryption level SSL connection to a secure Perforce server.
+
+- P4Java 2020.1 has changed the default TLS support to TLSv1.2 for use with Perforce server 2019.1 or greater this can be modified using the JVM option: ``java -DsecureSocketEnabledProtocols=TLSv1.2``
+
+## Known Limitations
+
+For Java versions prior to JDK 7, P4SL does not correctly implement or deal with Unix / Linux and Windows symbolic links.
+This is a known issue related to older (prior to JDK 7) versions of Java's inability to itself implement symbolic links.
+
+The Perforce server (2015.1 or higher) only supports 256-bit encryption.  Due to current US export control restrictions
+for some countries, the standard JDK package only comes with 128-bit encryption level ciphers.  In order to use P4SL to
+connect to a secure Perforce server, those living in eligible countries may download the unlimited strength JCE (Java
+Cryptography Extension) version and replace the current default cryptography jar files with the unlimited strength files. 
+
+These files are located at:
+
+``<java-home>/lib/security/local_policy.jar``
+
+``<java-home>/lib/security/US_export_policy.jar``
+
+## Documentation
+For more information please refer to the [Helix Plugin for MATLAB and Simulink (P4SL) Guide](https://www.perforce.com/manuals/p4sl/Content/P4SL/Home-p4SL.html)
+## Support
+
+This project is maintained by Perforce Engineering and fully supported.  Pull requests will be managed by Perforce's engineering teams.  We will do our best to acknowledge these in a timely manner based on available capacity.  Issues will not be managed on GitHub.  All issues should be recorded via Perforce's standard support process (https://www.perforce.com/support/request-support).
 
 ## Installation
 
