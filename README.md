@@ -9,15 +9,15 @@ NOTE: If you installed an earlier version of P4SL using a jar file, you must edi
 the Perforce Integration lines and restart MATLAB before you install P4SL.
 
 1. Start Matlab. Click *Open* then *Open....*  
-![Open](/view/depot/main/p4sl/docs/images/open-toolbox.png)
+![Open](docs/images/open-toolbox.png)
 
 2. Locate the P4SL.mltbx file (most likely found in your _Downloads_ folder). And click _Open_. You will see a message saying "Installation Complete". Click _Finish_.
 
 3. The Plugin will be displayed as Installed in the Add-On Manager.   
-![Plugin listed](/view/depot/main/p4sl/docs/images/plugin-listed.png)
+![Plugin listed](docs/images/plugin-listed.png)
 
 4. To View the Plugin's information, click on the three vertical dots on the right and click _View Details_.  
-![Plugin info](/view/depot/main/p4sl/docs/images/plugin-info.png)
+![Plugin info](docs/images/plugin-info.png)
 
 5. Restart Matlab.
 
@@ -31,13 +31,13 @@ You will need to download the *p4sl jar* file from [Perforce website](https://ww
 1. Start Matlab.  
 NOTE: Windows users may need to run MatLab as an administrator to make changes
 to the `classpath.txt` file.  
-![Run as admin](/view/depot/main/p4sl/docs/images/admin.png)
+![Run as admin](docs/images/admin.png)
 
 2. In the command window enter (without quotes): "edit classpath.txt".  
-![Command](/view/depot/main/p4sl/docs/images/command.png)
+![Command](docs/images/command.png)
 
 3. Scroll to the bottom, and add the absolute path to your P4Simulink file.  
-![Edit](/view/depot/main/p4sl/docs/images/edit.png)
+![Edit](docs/images/edit.png)
 
 4. Save the file, and *restart* Matlab.
 
@@ -83,28 +83,28 @@ entered at the prompt, and CLIENT_NAME is the specified workspace name:
 ### New Project from scratch
 To create a new Simulink Project select *New*, *From Simulink Template*, then *Create Project* on *Simple Project*.
 
-![New Project 1](/view/depot/main/p4sl/docs/images/new-proj1.png)
+![New Project 1](docs/images/new-proj1.png)
 
 You will see a dialog like one below.
 
-![Create Project](/view/depot/main/p4sl/docs/images/new-proj2.png)
+![Create Project](docs/images/new-proj2.png)
 
 Click on the folder icon to create a new folder (name is not editable).
 
-![New Project Directory](/view/depot/main/p4sl/docs/images/new-proj3.png)
+![New Project Directory](docs/images/new-proj3.png)
 
 In the *Project* tab click on *Use Source Control*, then *Add Project to Source Control...*
 
-![Add to Source Control](/view/depot/main/p4sl/docs/images/new-proj4.png)
+![Add to Source Control](docs/images/new-proj4.png)
 
 Select Perforce from the Source Control Tool drop-down, then click *Change...*
 
-![Perforce Connection](/view/depot/main/p4sl/docs/images/new-proj5.png)
+![Perforce Connection](docs/images/new-proj5.png)
 
 Fill in the details, then click *Connect*. Upon successful connection, click *Ok*, then click *Convert*.
 Edit the View Mapping and click *OK*.
 
-![View Mapping](/view/depot/main/p4sl/docs/images/new-proj6.png)
+![View Mapping](docs/images/new-proj6.png)
 
 Click *OK* on the Get Revision dialog and you will see Perforce icons on the project files.
 In the *PROJECT* tab, click *Commit* and add the project to Perforce.
@@ -114,59 +114,59 @@ In the *PROJECT* tab, click *Commit* and add the project to Perforce.
 
 To create a new Simulink Project select _New_, _Project_, then _From Simulink Template_ Or click on the *Simulink* icon on the menu bar. You will see the screen below.
 
-![New Project](/view/depot/main/p4sl/docs/images/new_project.png)
+![New Project](docs/images/new_project.png)
 
 Click on _Project from Helix Core_ or select _Helix Core_ from the _Projects_ --> _From Source Control_ dropdown.
 
 Set the _Sandbox_ path to the location on your local machine to populate with the versioned files.  The specified path will your Perforce Workspace __root__.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/sandbox_path.png)
+![Sandbox Path](docs/images/sandbox_path.png)
 
 Next, set the _Repository path_, this requires a Perforce URI.  Click on the _Change..._ button to open a Connection Dialog to help generate the URI.
 
 Provide the Server, Username and Workspace and click _Connect_ to validate and generate the URI, then _OK_ to set the URI.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/new-proj5.png)
+![Sandbox Path](docs/images/new-proj5.png)
 
 Click on the _Retrieve_ button to start the process of fetching the files from Perforce.  If the sandbox directory does not exist, you will be prompted to create it, select _Yes_.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/retrieve.png)
+![Sandbox Path](docs/images/retrieve.png)
 
 If you do not already have a valid ticket session with Perforce, you will be prompted for your password...
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/password.png)
+![Sandbox Path](docs/images/password.png)
 
 If the Workspace specified in your connection does not exist you will be prompted to create one.  Fill out the Perforce Workspace setting, Stream or View as needed and click _OK_ to save.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/new-proj6.png)
+![Sandbox Path](docs/images/new-proj6.png)
 
 Next, the plugin will request what changed to populate the workspace.  Select the change as needed, typically _Get latest revision_ is required.  Select _OK_ and Perforce will sync the specified files to your local MatLab sandbox.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/get_change.png)
+![Sandbox Path](docs/images/get_change.png)
 
 Simulink will prompt you to create a Project, select _Yes_.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/create-project.png)
+![Sandbox Path](docs/images/create-project.png)
 
 You will see a _Let's get started!_ popup. Click _Set Up Project_ button.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/setup-project1.png)
+![Sandbox Path](docs/images/setup-project1.png)
 
 To add the project files to Simulink, click on _Add Folder..._ or _Add with Subfolders..._. When you click on _Add Folder..._, you will be prompted to select the folders you want to add to the project.
 
 You can specify project files to automate startup tasks in step 2 as below.
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/setup-project2.png)
+![Sandbox Path](docs/images/setup-project2.png)
 
 You can still add files and folders to your project by selecting the folder/file to add. Select all the files and directories to add to Simulink, then right click and select _Add to Project_ or _Add Folder to Project (Including Child Files)_ as needed.
 
 The file Status will now indicate a green tick...  
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/add_files_4.png)
+![Sandbox Path](docs/images/add_files_4.png)
 
 Simulink will have created/updated project files on account of the change, under _Modified Files_. To submit these back to Perforce, open the _Current Folder_ view, right click, select _Source Control_ and click _View and Commit Changes..._. 
 
-![Sandbox Path](/view/depot/main/p4sl/docs/images/submit_proj.png)
+![Sandbox Path](docs/images/submit_proj.png)
 
 ... and provide a change description.
 
@@ -180,7 +180,7 @@ one of our clients e.g. command line `p4` or GUI `P4V` client.
 MatLab automatically picks up the Perforce configuration as you
 navigate files on your system.
 
-![Files](/view/depot/main/p4sl/docs/images/files.png)
+![Files](docs/images/files.png)
 
 The 'Helix Core' column will indicate the file's state using a green circle 
 (up-to-date) and blue square (edit) and so on...
@@ -188,7 +188,7 @@ The 'Helix Core' column will indicate the file's state using a green circle
 Use the (right click) context menu -> 'Source Control' on the file or folder 
 to apply Perforce actions.
 
-![Files](/view/depot/main/p4sl/docs/images/context.png)
+![Files](docs/images/context.png)
 
 ## Notes 
 

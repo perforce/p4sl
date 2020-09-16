@@ -1,13 +1,13 @@
                             Release Notes for
           P4SL, the Helix Core (Perforce) Plugin for Simulink and Matlab
  
-                            Version 2019.1
+                            Version 2020.1
 
 Introduction
 
 	P4SL is a Helix Core Plugin for Simulink and Matlab.
 
-	Perforce numbers releases YYYY.R.CCCCC, for example, 2019.1.1849373.
+	Perforce numbers releases YYYY.R.CCCCC, for example, 2020.1.1849373.
 	YYYY is the year; R is the release of that year; CCCCC is the
 	bug fix change level.  Each bug fix in these release notes is
 	marked by its change number.  Any build includes (1) all bug fixes
@@ -67,6 +67,15 @@ Known Limitations
 	  <java-home>/lib/security/local_policy.jar
 	  <java-home>/lib/security/US_export_policy.jar
 
+
+-------------------------------------------
+Major new functionality in 2020.1
+
+    #2007646 (Bug #103153)
+        Upgraded P4SL to use Simulink R2020a APIs.
+
+    #2007498 (Bug #103133)
+    	Upgraded p4java api version to 2020.1.1999383.
 
 -------------------------------------------
 Major new functionality in 2019.1
