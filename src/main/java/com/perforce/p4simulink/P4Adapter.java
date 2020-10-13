@@ -6,6 +6,56 @@ package com.perforce.p4simulink;
  * Please see LICENSE.txt in top-level folder of this distribution.
  */
 
+import com.mathworks.cmlink.api.AdapterSupportedFeature;
+import com.mathworks.cmlink.api.ApplicationInteractor;
+import com.mathworks.cmlink.api.ConfigurationManagementException;
+import com.mathworks.cmlink.api.ConflictedRevisions;
+import com.mathworks.cmlink.api.IntegerRevision;
+import com.mathworks.cmlink.api.Revision;
+import com.mathworks.cmlink.api.customization.CoreAction;
+import com.mathworks.cmlink.api.customization.CustomizationWidgetFactory;
+import com.mathworks.cmlink.api.customization.file.CustomizationFileActionFactory;
+import com.mathworks.cmlink.api.version.r16b.CMAdapter;
+import com.mathworks.cmlink.api.version.r16b.FileState;
+import com.mathworks.cmlink.util.status.NoBaseConflictedRevision;
+import com.perforce.p4java.core.IChangelist;
+import com.perforce.p4java.core.ILabelSummary;
+import com.perforce.p4java.core.file.FileAction;
+import com.perforce.p4java.core.file.FileSpecBuilder;
+import com.perforce.p4java.core.file.FileSpecOpStatus;
+import com.perforce.p4java.core.file.IExtendedFileSpec;
+import com.perforce.p4java.core.file.IFileRevisionData;
+import com.perforce.p4java.core.file.IFileSpec;
+import com.perforce.p4java.exception.AccessException;
+import com.perforce.p4java.exception.P4JavaException;
+import com.perforce.p4java.impl.generic.core.Changelist;
+import com.perforce.p4java.impl.generic.core.file.FileSpec;
+import com.perforce.p4java.option.changelist.SubmitOptions;
+import com.perforce.p4java.option.client.AddFilesOptions;
+import com.perforce.p4java.option.client.DeleteFilesOptions;
+import com.perforce.p4java.option.client.EditFilesOptions;
+import com.perforce.p4java.option.client.ReconcileFilesOptions;
+import com.perforce.p4java.option.client.ReopenFilesOptions;
+import com.perforce.p4java.option.client.ResolveFilesAutoOptions;
+import com.perforce.p4java.option.client.RevertFilesOptions;
+import com.perforce.p4java.option.client.SyncOptions;
+import com.perforce.p4java.option.server.GetExtendedFilesOptions;
+import com.perforce.p4java.option.server.GetFileContentsOptions;
+import com.perforce.p4java.option.server.GetRevisionHistoryOptions;
+import com.perforce.p4java.option.server.MoveFileOptions;
+import com.perforce.p4java.option.server.OpenedFilesOptions;
+import com.perforce.p4java.option.server.TagFilesOptions;
+import com.perforce.p4java.server.IOptionsServer;
+import com.perforce.p4simulink.connection.P4Config;
+import com.perforce.p4simulink.connection.P4FileState;
+import com.perforce.p4simulink.connection.P4Uri;
+import com.perforce.p4simulink.util.Files;
+import com.perforce.p4simulink.util.Logging;
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,56 +73,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import javax.swing.ImageIcon;
-
-import com.mathworks.cmlink.api.ConflictedRevisions;
-import com.mathworks.cmlink.api.customization.file.CustomizationFileActionFactory;
-import com.mathworks.cmlink.api.version.r16b.CMAdapter;
-import com.mathworks.cmlink.util.status.NoBaseConflictedRevision;
-import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.mathworks.cmlink.api.AdapterSupportedFeature;
-import com.mathworks.cmlink.api.ApplicationInteractor;
-import com.mathworks.cmlink.api.ConfigurationManagementException;
-import com.mathworks.cmlink.api.version.r16b.FileState;
-import com.mathworks.cmlink.api.IntegerRevision;
-import com.mathworks.cmlink.api.Revision;
-import com.mathworks.cmlink.api.customization.CoreAction;
-import com.mathworks.cmlink.api.customization.CustomizationWidgetFactory;
-import com.perforce.p4java.core.IChangelist;
-import com.perforce.p4java.core.ILabelSummary;
-import com.perforce.p4java.core.file.FileAction;
-import com.perforce.p4java.core.file.FileSpecBuilder;
-import com.perforce.p4java.core.file.FileSpecOpStatus;
-import com.perforce.p4java.core.file.IExtendedFileSpec;
-import com.perforce.p4java.core.file.IFileRevisionData;
-import com.perforce.p4java.core.file.IFileSpec;
-import com.perforce.p4java.exception.P4JavaException;
-import com.perforce.p4java.impl.generic.core.Changelist;
-import com.perforce.p4java.impl.generic.core.file.FileSpec;
-import com.perforce.p4java.option.changelist.SubmitOptions;
-import com.perforce.p4java.option.client.AddFilesOptions;
-import com.perforce.p4java.option.client.DeleteFilesOptions;
-import com.perforce.p4java.option.client.EditFilesOptions;
-import com.perforce.p4java.option.client.ReconcileFilesOptions;
-import com.perforce.p4java.option.client.ReopenFilesOptions;
-import com.perforce.p4java.option.client.ResolveFilesAutoOptions;
-import com.perforce.p4java.option.client.RevertFilesOptions;
-import com.perforce.p4java.option.client.SyncOptions;
-import com.perforce.p4java.option.server.GetExtendedFilesOptions;
-import com.perforce.p4java.option.server.GetFileContentsOptions;
-import com.perforce.p4java.option.server.GetRevisionHistoryOptions;
-import com.perforce.p4java.option.server.MoveFileOptions;
-import com.perforce.p4java.option.server.TagFilesOptions;
-import com.perforce.p4java.server.IOptionsServer;
-import com.perforce.p4simulink.connection.P4Config;
-import com.perforce.p4simulink.connection.P4FileState;
-import com.perforce.p4simulink.connection.P4Uri;
-import com.perforce.p4simulink.util.Files;
-import com.perforce.p4simulink.util.Logging;
 
 public class P4Adapter extends P4Interactor implements CMAdapter {
 
@@ -214,6 +214,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				P4FileState fstat = new P4FileState(exSpec);
 				list.add(fstat);
 			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			throw new P4CMException("fstat", e);
 		}
@@ -229,19 +235,45 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 	private void isModified(List<IFileSpec> fileSpecs)
 			throws ConfigurationManagementException {
 		try {
+
+			// Find modified files
 			ReconcileFilesOptions statusOpts = new ReconcileFilesOptions();
 			statusOpts.setChangelistId(getChangeID());
 			statusOpts.setOutsideEdit(true);
+			statusOpts.setNoUpdate(true);
 			statusOpts.setLocalSyntax(true);
-			List<IFileSpec> status = client.reconcileFiles(fileSpecs,
-					statusOpts);
+			List<IFileSpec> status = client.reconcileFiles(fileSpecs, statusOpts);
 			Files.validateFileSpecs(status, "no file(s) to reconcile");
+
+			for (IFileSpec spec : status) {
+				if (spec.getOpStatus().equals(FileSpecOpStatus.VALID) && !isOpened(spec)) {
+					// If not opened, open it for edit
+					edit(Arrays.asList(new File(spec.getLocalPathString())));
+				}
+			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
 			Logging.logException(log, new ConfigurationManagementException(e),
 					true);
 		}
+	}
+
+	private boolean isOpened(IFileSpec spec) throws P4JavaException {
+		OpenedFilesOptions openedOpts = new OpenedFilesOptions();
+		List<IFileSpec> opened = client.openedFiles(Arrays.asList(spec), openedOpts);
+		for(IFileSpec open: opened) {
+			if (open.getOpStatus().equals(FileSpecOpStatus.INFO)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -267,6 +299,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			// no files to check out
 			Files.validateFileSpecs(synced, "file(s) up-to-date.",
 					" - no such file(s).", "- file(s) not on client.");
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -343,6 +381,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 
 				Files.validateFileSpecs(synced, "file(s) up-to-date.");
 			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -371,6 +415,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			List<IFileSpec> synced = client.sync(pathSpec, options);
 
 			Files.validateFileSpecs(synced, "file(s) up-to-date.");
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -401,6 +451,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 
 				Files.validateFileSpecs(added, "empty, assuming text",
 						"can't add existing file");
+			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
 			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
@@ -463,6 +519,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				openOpts.setChangelistId(getChangeID());
 				client.reopenFiles(specs, openOpts);
 			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -489,6 +551,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			List<IFileSpec> reverted = client.revertFiles(specs, options);
 			Files.validateFileSpecs(reverted,
 					"file(s) not opened on this client");
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -522,6 +590,17 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			List<IFileSpec> deleted = client.deleteFiles(specs, delOpts);
 			Files.validateFileSpecs(deleted, "files(s) not on client",
 					"clobber writable");
+
+			// Leaving deleted files writable
+			for (File file: files) {
+				file.setWritable(true);
+			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -546,6 +625,11 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 
 		log.debug("moveFile() {} {}", src, dst);
 
+		if (src.isDirectory()) {
+			moveFiles(src, dst);
+			return;
+		}
+
 		IFileSpec srcSpec = new FileSpec(src.getAbsolutePath());
 		IFileSpec dstSpec = new FileSpec(dst.getAbsolutePath());
 		try {
@@ -565,6 +649,43 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			moveOpts.setChangelistId(getChangeID());
 			List<IFileSpec> moved = server.moveFile(srcSpec, dstSpec, moveOpts);
 			Files.validateFileSpecs(moved);
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
+		} catch (Exception e) {
+			if (e instanceof P4JavaException) {
+				Logging.logException(log, new P4JavaException(e), true);
+			}
+		}
+	}
+
+	private void moveFiles(File src, File dst)
+			throws ConfigurationManagementException {
+
+		src.renameTo(dst);
+
+		IFileSpec srcSpec = new FileSpec(src.getAbsolutePath() + "/...");
+		IFileSpec dstSpec = new FileSpec(dst.getAbsolutePath() + "/...");
+
+		try {
+			// revert files before rec
+
+			List<IFileSpec> recSpecs = new ArrayList<>();
+			recSpecs.add(srcSpec);
+			recSpecs.add(dstSpec);
+
+			RevertFilesOptions revertOpts = new RevertFilesOptions();
+			client.revertFiles(recSpecs,revertOpts);
+
+			ReconcileFilesOptions statusOpts = new ReconcileFilesOptions();
+			statusOpts.setChangelistId(getChangeID());
+
+			List<IFileSpec> status = client.reconcileFiles(recSpecs, statusOpts);
+			Files.validateFileSpecs(status, "no file(s) to reconcile");
+
 		} catch (Exception e) {
 			if (e instanceof P4JavaException) {
 				Logging.logException(log, new P4JavaException(e), true);
@@ -595,6 +716,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			List<IFileSpec> files = client.resolveFilesAuto(spec, resolveOpts);
 
 			Files.validateFileSpecs(files);
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -650,6 +777,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			setChangeID(c);
 
 			Files.validateFileSpecs(submit);
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		} catch (Exception e) {
@@ -752,6 +885,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 		} catch (IOException e) {
 			Logging.logException(log, new ConfigurationManagementException(e),
 					true);
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		}
@@ -783,26 +922,35 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				IFileSpec dfile = entry.getKey();
 				List<IFileRevisionData> data = entry.getValue();
 
-				for (IFileRevisionData d : data) {
+				// If no history found, perforce returns with error and data is null
+				if (data != null) {
+					for (IFileRevisionData d : data) {
 
-					FileAction action = d.getAction();
-					if (action.equals(FileAction.MOVE_DELETE)
-							|| action.equals(FileAction.DELETE)) {
-						continue;
+						FileAction action = d.getAction();
+						if (action.equals(FileAction.MOVE_DELETE)
+								|| action.equals(FileAction.DELETE)) {
+							continue;
+						}
+
+						Map<String, String> revInfo = new HashMap<>();
+						revInfo.put("Action", action.toString());
+						revInfo.put("Change", "" + d.getChangelistId());
+						revInfo.put("File", "" + dfile.getDepotPathString());
+						revInfo.put("Log", d.getDescription());
+						revInfo.put("Submitted", format.format(d.getDate()));
+						revInfo.put("User", d.getUserName());
+
+						Revision r = new IntegerRevision(d.getRevision(), revInfo);
+						revisions.add(r);
 					}
 
-					Map<String, String> revInfo = new HashMap<>();
-					revInfo.put("Action", action.toString());
-					revInfo.put("Change", "" + d.getChangelistId());
-					revInfo.put("File", "" + dfile.getDepotPathString());
-					revInfo.put("Log", d.getDescription());
-					revInfo.put("Submitted", format.format(d.getDate()));
-					revInfo.put("User", d.getUserName());
-
-					Revision r = new IntegerRevision(d.getRevision(), revInfo);
-					revisions.add(r);
 				}
-
+			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
 			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
@@ -843,6 +991,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				f.addAll(files);
 				log.debug("TAGS: " + getTags(f.get(0)));
 			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		}
@@ -875,6 +1029,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			for (ILabelSummary label : labels) {
 				tags.add(label.getName());
 			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		}
@@ -890,6 +1050,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 			TagFilesOptions options = new TagFilesOptions();
 			options.setDelete(true);
 			server.tagFiles(specs, tagName, options);
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
+			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);
 		}
@@ -926,6 +1092,12 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				}
 				stored.put(new File(spec.getClientPathString()),
 						spec.isMapped());
+			}
+		} catch (AccessException ae) {
+			try {
+				connect();
+			} catch (ConfigurationManagementException ce) {
+				log.error("Unable to renew connection.", ce);
 			}
 		} catch (P4JavaException e) {
 			Logging.logException(log, e, true);

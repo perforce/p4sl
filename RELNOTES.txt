@@ -77,6 +77,14 @@ Major new functionality in 2020.1
     #2007498 (Bug #103133)
     	Upgraded p4java api version to 2020.1.1999383.
 
+Bugs fixed in 2020.1
+
+    #2015743 (Bug #103150, #103815)
+    	When deleting files using 'Delete from Helix Core' option, the files are now left writable on disk.
+
+    #2016245 (Bug #103814)
+    	Handled Helix Core time out nicely; now prompts the user to reconnect by entering password.
+
 -------------------------------------------
 Major new functionality in 2019.1
     #1888146 (Bug #100708)
