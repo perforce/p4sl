@@ -6,7 +6,6 @@ package com.perforce.p4simulink.util;
  * Please see LICENSE.txt in top-level folder of this distribution.
  */
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
 import com.mathworks.cmlink.api.ConfigurationManagementException;
@@ -33,8 +32,7 @@ public class Logging {
 
 	public static void logException(Logger logger, P4CMException e,
 			boolean rethrow) throws P4CMException {
-		logger.error("Exception: " + e.getLocalizedMessage());
-		e.printStackTrace(logger.getStream(Level.ERROR));
+		logger.error("Exception: " + e.getLocalizedMessage(),e);
 
 		if (rethrow) {
 			throw e;
@@ -44,8 +42,7 @@ public class Logging {
 	public static void logException(Logger logger,
 			ConfigurationManagementException e, boolean rethrow)
 			throws ConfigurationManagementException {
-		logger.error("Exception: " + e.getLocalizedMessage());
-		e.printStackTrace(logger.getStream(Level.ERROR));
+		logger.error("Exception: " + e.getLocalizedMessage(),e);
 
 		if (rethrow) {
 			throw e;
@@ -54,8 +51,7 @@ public class Logging {
 
 	public static void logException(Logger logger, P4JavaException e,
 			boolean rethrow) throws ConfigurationManagementException {
-		logger.error("Exception [P4Java]: " + e.getLocalizedMessage());
-		e.printStackTrace(logger.getStream(Level.ERROR));
+		logger.error("Exception [P4Java]: " + e.getLocalizedMessage(), e);
 
 		if (rethrow) {
 			throw new ConfigurationManagementException(e);

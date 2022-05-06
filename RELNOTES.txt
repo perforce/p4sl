@@ -1,7 +1,7 @@
                             Release Notes for
           P4SL, the Helix Core (Perforce) Plugin for Simulink and Matlab
  
-                            Version 2020.1
+                            Version 2021.2
 
 Introduction
 
@@ -49,11 +49,6 @@ Installation
 
 Known Limitations
 
-	* For Java versions prior to JDK 7, P4SL does not correctly
-	  implement or deal with Unix / Linux and Windows symbolic links.
-	  This is a known issue related to older (prior to JDK 7) versions
-	  of Java's inability to itself implement symbolic links.
-
 	* The Perforce server (2015.1 or higher) only supports 256-bit
 	  encryption.  Due to current US export control restrictions
 	  for some countries, the standard JDK package only comes with
@@ -67,6 +62,14 @@ Known Limitations
 	  <java-home>/lib/security/local_policy.jar
 	  <java-home>/lib/security/US_export_policy.jar
 
+-------------------------------------------
+Major new functionality in 2021.2
+ 
+    #2265417  (Bug #110045)
+        Use the versions of api.jar and util.jar corresponding to Matlab R2022a
+ 
+    #2266783  (Bug #109732)
+    	Update to the latest P4Java 2021.2
 
 -------------------------------------------
 Major new functionality in 2020.1

@@ -24,18 +24,24 @@ configurations {
     compile.extendsFrom provided
 }
 
+//From Gradle 7 onwards, it is required to rename compile, testCompile and configurations.runtime to implementation, testImplementation
+// and configurations.runtimeClasspath respectively
 dependencies {
-	compile files( 'libs/api.jar', 'libs/util.jar' )
-	compile 'com.perforce:p4java:2020.1.1999383'
-	compile 'org.apache.logging.log4j:log4j-api:2.16.0'
-	compile 'org.apache.logging.log4j:log4j-core:2.16.0'
-    compile 'commons-io:commons-io:2.4'
-    compile 'org.apache.commons:commons-exec:1.2'
-    compile 'org.apache.commons:commons-compress:1.8.1'
-    testCompile 'junit:junit:4.10'
+	implementation files( 'libs/api.jar', 'libs/util.jar' )
+	implementation 'com.perforce:p4java:2021.2.2278127'
+	implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+	implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.apache.commons:commons-exec:1.3'
+    implementation 'org.apache.commons:commons-compress:1.21'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 jar {
+		//From Gradle 7 onwards, it is explicitly required to specify the duplicate strategy to avoid getting the error
+		//'Entry META-INF/DEPENDENCIES is a duplicate but no duplicate handling strategy has been set'
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
+	
 	manifest {
 		attributes( 'Bundle-Name': project.name,
 			'Mathworks-Bundle': 'true',
@@ -50,9 +56,9 @@ jar {
 	}
 
     // include dependent jars (build a so-called "fat" jar)
-    dependsOn configurations.runtime
+    dependsOn configurations.runtimeClasspath
     from {
-        (configurations.runtime - configurations.provided).collect {
+        (configurations.runtimeClasspath - configurations.provided).collect {
             it.isDirectory() ? it : zipTree(it)
         }
     } {
@@ -60,9 +66,8 @@ jar {
     }
 }
 
-task wrapper( type: Wrapper ) {
-	gradleVersion = '1.12'
-}
+
+
 
 test {
 
