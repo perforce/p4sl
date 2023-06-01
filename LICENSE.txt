@@ -1,18 +1,40 @@
-Copyright (c) 2022, Perforce Software, Inc. All rights reserved.
+Copyright (c) 2023, Perforce Software, Inc. All rights reserved.
+
+
+BY INSTALLING OR DOWNLOADING THE SOFTWARE, YOU ARE ACCEPTING AND AGREEING TO THE TERMS OF
+THIS END USER LICENSE AGREEMENT (THE "LICENSE AGREEMENT"), AND IT LEGALLY BINDS YOU AND
+YOUR EMPLOYER (COLLECTIVELY THE "LICENSEE"), AND PERFORCE SOFTWARE, INC., A DELAWARE
+CORPORATION ("PERFORCE"), TO THE TERMS AND CONDITIONS OF THE LICENSE AGREEMENT (INCLUDING
+ANY TERMS, CONDITIONS, AND RESTRICTIONS CONTAINED IN ANY ORDER RELATING TO THE SOFTWARE).
+IF THE LICENSEE DOES NOT ACCEPT AND AGREE TO THE TERMS AND CONDITIONS OF THE LICENSE
+AGREEMENT THEN DO NOT DOWNLOAD, INSTALL, OR OTHERWISE USE THE SOFTWARE.
+
+THE RIGHT TO USE THE SOFTWARE IS CONDITIONAL UPON ACCEPTANCE OF THE LICENSE AGREEMENT,
+UNLESS THE LICENSEE HAS ENTERED INTO A WRITTEN AND DULY SIGNED LICENSE AGREEMENT WITH
+PERFORCE, IN WHICH CASE SUCH SIGNED LICENSE AGREEMENT WILL GOVERN THE LICENSEE'S USE OF
+THE SOFTWARE.
 
 Redistribution and use in source and binary forms, with or without modification, are
 permitted provided that the following conditions are met:
 
+
+
 1. Redistributions of source code must retain the above copyright notice, this list of
 conditions and the following disclaimer.
+
+
 
 2. Redistributions in binary form must reproduce the above copyright notice, this list of
 conditions and the following disclaimer in the documentation and/or other materials
 provided with the distribution.
 
+
+
 3. Neither the name of the copyright holder nor the names of its contributors may be used
 to endorse or promote products derived from this software without specific prior written
 permission.
+
+
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -26,6 +48,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
  This distribution also includes the following third party software; please consult the
 accompanying license file for the license terms that apply to that software only:
+
+commons-codec-1.15.jar
+  Licenses:
+    License:     Apache 2.0
+    Reference:   https://repository.apache.org/content/repositories/releases/commons-codec/commons-codec/1.15/commons-codec-1.15.pom
+    LicenseText: License Text Under Appendix
+
+  Copyrights:
+    Copyright:   Copyright The Apache Software Foundation
+    Reference:   https://commons.apache.org/
 
 commons-compress-1.21.jar
   Licenses:
@@ -64,27 +96,31 @@ commons-io-2.11.0.jar
     Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/454db108-23ea-4a10-ab65-9a699dc34ab2
     Author:      The Apache Software Foundation
 
-commons-lang3-3.4.jar
+commons-lang3-3.12.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.pom
+    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2001-2015 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/93e762c7-d7d9-46dc-94cc-1e3ff8315f90
+    Copyright:   Copyright 2001-2021 The Apache Software Foundation
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/11239b3a-f2b6-4016-bd0c-c0ce1d0fa09e
     Author:      The Apache Software Foundation
 
-jsr305-3.0.1.jar
+jsr305-3.0.2.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.1/jsr305-3.0.1.pom
+    Reference:   https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.pom
     LicenseText: License Text Under Appendix
+
+  Copyrights:
+    Copyright:   Copyright 2012 http://findbugs.sourceforge.net/
+    Reference:   University of Maryland
 
 jzlib-1.1.3.jar
   Licenses:
     License:     BSD 3
-    Reference:   http://www.jcraft.com/jzlib/LICENSE.txt
+    Reference:   https://repo.maven.apache.org/maven2/com/jcraft/jzlib/1.1.3/jzlib-1.1.3.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
@@ -104,56 +140,69 @@ jzlib-1.1.3.jar
     Reference:   http://www.jcraft.com/jzlib/LICENSE.txt
     Author:      ymnk
 
-log4j-api-2.17.2.jar
+log4j-api-2.19.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.pom
+    Reference:   https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
     Copyright:   Copyright 1999-2022 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/11ff36bb-74e4-4404-8ea1-c0c17b82afb0
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/3e0941b0-3f7f-481b-b30c-ad1ae9a2e18d
     Author:      The Apache Software Foundation
 
-log4j-core-2.17.2.jar
+log4j-core-2.19.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.pom
+    Reference:   https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2005-2006 Tim Fennell
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/795aa7d2-cc30-43d4-a873-1e138bce13d9
-    Author:      Tim Fennell
+    Copyright:   Copyright 2022 The Apache Software Foundation
+    Reference:   https://logging.apache.org/log4j/2.x/
 
-    Copyright:   Copyright 1999-2012 Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/795aa7d2-cc30-43d4-a873-1e138bce13d9
-    Author:      Apache Software Foundation
-
-    Copyright:   Copyright 1999-2005 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/0078c017-0d59-4ba4-95f8-5c312d333383
-    Author:      The Apache Software Foundation
-
-p4java-2021.2.2240592.jar
+p4java-2022.2.2444480.jar
   Licenses:
-    License:     Proprietary
-    Reference:   http://www.perforce.com/
+    License:     BSD 3
+    Reference:   https://repo.maven.apache.org/maven2/com/perforce/p4java/2022.2.2444480/p4java-2022.2.2444480.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2005-2015 Perforce Software
-    Reference:   https://swarm.workshop.perforce.com/files/guest/perforce_software/p4java/main/samples/license.txt
-    Author:      Perforce Software
+    Copyright:   Copyright 2023 Perforce Software, Inc
+    Reference:   https://www.perforce.com/perforce/doc.current/user/p4java_eula.txt
+    Author:      Perforce Software, Inc
+
 
   Appendix:
------------
-Proprietary
------------
-
-
 -----
 BSD 3
 -----
+Copyright (c) {{YEAR}}, {{OWNER}}
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of
+conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of
+conditions and the following disclaimer in the documentation and/or other materials
+provided with the distribution.
+
+Neither the name of {{the ORGANIZATION nor the names of its contributors}} may be used to
+endorse or promote products derived from this software without specific prior written
+permission.
+
+THIS SOFTWARE IS PROVIDED BY {{THE COPYRIGHT HOLDERS AND CONTRIBUTORS}} "AS IS" AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+{{THE COPYRIGHT HOLDER OR CONTRIBUTORS}} BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ----------
