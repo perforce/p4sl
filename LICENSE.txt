@@ -1,4 +1,4 @@
-Copyright (c) 2023, Perforce Software, Inc. All rights reserved.
+Copyright (c) 2024, Perforce Software, Inc. All rights reserved.
 
 
 BY INSTALLING OR DOWNLOADING THE SOFTWARE, YOU ARE ACCEPTING AND AGREEING TO THE TERMS OF
@@ -59,20 +59,16 @@ commons-codec-1.15.jar
     Copyright:   Copyright The Apache Software Foundation
     Reference:   https://commons.apache.org/
 
-commons-compress-1.21.jar
+commons-compress-1.26.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.21/commons-compress-1.21.pom
+    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2002-2021 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/7dcd678d-1798-4c01-9ce3-67fe6811a901
+    Copyright:   Copyright 2002-2024 The Apache Software Foundation
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/ccebaff8-5316-4db3-9d3a-51e2951925c8
     Author:      The Apache Software Foundation
-
-    Copyright:   Copyright 1996-2019 Julian R Seward
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/7dcd678d-1798-4c01-9ce3-67fe6811a901
-    Author:      Julian R Seward
 
 commons-exec-1.3.jar
   Licenses:
@@ -85,26 +81,26 @@ commons-exec-1.3.jar
     Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/1998c91e-7b23-43bb-845c-ea0d33b3920c
     Author:      The Apache Software Foundation
 
-commons-io-2.11.0.jar
+commons-io-2.15.1.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/commons-io/commons-io/2.11.0/commons-io-2.11.0.pom
+    Reference:   https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2002-2021 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/454db108-23ea-4a10-ab65-9a699dc34ab2
+    Copyright:   Copyright 2002-2023 The Apache Software Foundation
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/c37716e5-bcbe-452d-996a-1d9553fbc907
     Author:      The Apache Software Foundation
 
-commons-lang3-3.12.0.jar
+commons-lang3-3.14.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.pom
+    Reference:   https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
-    Copyright:   Copyright 2001-2021 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/11239b3a-f2b6-4016-bd0c-c0ce1d0fa09e
+    Copyright:   Copyright 2001-2023 The Apache Software Foundation
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/25f33986-d48b-41f1-9e9e-74fbf5897a98
     Author:      The Apache Software Foundation
 
 jsr305-3.0.2.jar
@@ -161,16 +157,11 @@ log4j-core-2.19.0.jar
     Copyright:   Copyright 2022 The Apache Software Foundation
     Reference:   https://logging.apache.org/log4j/2.x/
 
-p4java-2022.2.2444480.jar
+p4java-2024.1.2612262.jar
   Licenses:
     License:     BSD 3
-    Reference:   https://repo.maven.apache.org/maven2/com/perforce/p4java/2022.2.2444480/p4java-2022.2.2444480.pom
+    Reference:   https://repo.maven.apache.org/maven2/com/perforce/p4java/2024.1.2612262/p4java-2024.1.2612262.pom
     LicenseText: License Text Under Appendix
-
-  Copyrights:
-    Copyright:   Copyright 2023 Perforce Software, Inc
-    Reference:   https://www.perforce.com/perforce/doc.current/user/p4java_eula.txt
-    Author:      Perforce Software, Inc
 
 
   Appendix:

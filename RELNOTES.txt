@@ -1,7 +1,7 @@
                             Release Notes for
           P4SL, the Helix Core (Perforce) Plugin for Simulink and Matlab
  
-                            Version 2022.2
+                            Version 2024.1
 
 Introduction
 
@@ -22,7 +22,7 @@ Requirements
 
 	* Perforce server at Release 2017.1 or higher.
 
-	* Java: full standard JDK 8 or later.  Implementation as
+	* Java: full standard JDK 11 or later.  Implementation as
 	  discussed in "Known Limitations" below.
 
 	* SSL: unlimited strength JCE (Java Cryptography Extension) package for
@@ -63,76 +63,109 @@ Known Limitations
 	  <java-home>/lib/security/US_export_policy.jar
 
 -------------------------------------------
+Major new functionality in 2024.1 (2024.1/2620571) (2024/07/02)
+ 
+    #2616732  (Job #121144 #121368)
+	Updated P4Java version to P4Java 2024.1.2612262
+	Updated Java version to 11.
+
+    #2617759  (Job #121369)
+	Upgraded P4SL to use Simulink R2024a APIs.
+
+    #2616732  (Job #121424 #121142)
+	Upgraded org.apache.commons:commons-compress:1.26.2 to
+	address CVEs: CVE-2024-25710 and CVE-2024-26308 
+    	
+
+-------------------------------------------
+Major new functionality in 2023.2 (2023.2/2561373) (2024/02/23)
+ 
+	#2552541  (Job #119065)
+		Updated P4Java version to P4Java 2023.2.2553500
+
+-------------------------------------------
+Major new functionality in 2023.1  (2023.1/2518458) (2023/11/13)
+ 
+	#2513039  (Job #116936, #116996)
+		Updated P4Java version to P4Java 2023.1.2512805
+
+		Upgraded P4SL to use Simulink R2023b APIs.
+
+-------------------------------------------
 Major new functionality in 2022.2 (2022.2/2447215) (2023/05/30)
  
-    #2445997  (Job #114818, #115704)
-    	Updated P4Java version to P4Java 2022.2.2444480
-    	
-    	Upgraded P4SL to use Simulink R2023a APIs.
+	#2445997  (Job #114818, #115704)
+		Updated P4Java version to P4Java 2022.2.2444480
+
+		Upgraded P4SL to use Simulink R2023a APIs.
 
 -------------------------------------------
 Major new functionality in 2022.1 Patch 1 (2022.1/2393090) (2023/01/17)
  
-    #2391906  (Job #113987)
-    	Updated P4Java version to P4Java 2022.1.2390907
+	#2391906  (Job #113987)
+		Updated P4Java version to P4Java 2022.1.2390907
 
 -------------------------------------------
 Major new functionality in 2022.1 (2022.1/2355860) (2022/10/13)
  
-    #2354278  (Job #112759)
-        Use the versions of api.jar and util.jar corresponding to Matlab R2022b
+	#2354278  (Job #112759)
+		 Use the versions of api.jar and util.jar corresponding to
+		 Matlab R2022b
  
-    #2354234  (Job #112726)
-    	Updated P4Java version to P4Java 2022.1.2350821
-
+	 #2354234  (Job #112726)
+		Updated P4Java version to P4Java 2022.1.2350821
 
 -------------------------------------------
 Major new functionality in 2021.2
  
-    #2265417  (Bug #110045)
-        Use the versions of api.jar and util.jar corresponding to Matlab R2022a
+	#2265417  (Bug #110045)
+		 Use the versions of api.jar and util.jar corresponding to
+		 Matlab R2022a
  
-    #2266783  (Bug #109732)
-    	Update to the latest P4Java 2021.2
+	#2266783  (Bug #109732)
+		Update to the latest P4Java 2021.2
 
 -------------------------------------------
 Major new functionality in 2020.1
 
-    #2007646 (Bug #103153)
-        Upgraded P4SL to use Simulink R2020a APIs.
+	#2007646 (Bug #103153)
+		Upgraded P4SL to use Simulink R2020a APIs.
 
-    #2007498 (Bug #103133)
-    	Upgraded p4java api version to 2020.1.1999383.
+	#2007498 (Bug #103133)
+		Upgraded p4java api version to 2020.1.1999383.
 
 Bugs fixed in 2020.1
 
-    #2015743 (Bug #103150, #103815)
-    	When deleting files using 'Delete from Helix Core' option, the files are now left writable on disk.
+	#2015743 (Bug #103150, #103815)
+		When deleting files using 'Delete from Helix Core' option, the files
+		are now left writable on disk.
 
-    #2016245 (Bug #103814)
-    	Handled Helix Core time out nicely; now prompts the user to reconnect by entering password.
+	#2016245 (Bug #103814)
+		Handled Helix Core time out nicely; now prompts the user to reconnect
+		by entering password.
 
 -------------------------------------------
 Major new functionality in 2019.1
-    #1888146 (Bug #100708)
-        Added support for Helix Authentication Service.
+	#1888146 (Bug #100708)
+		Added support for Helix Authentication Service.
 
-    #1826274 (Bug #99767)
-        Upgrade P4SL to use Simulink R2016b APIs.
+	#1826274 (Bug #99767)
+		Upgrade P4SL to use Simulink R2016b APIs.
 
-    #1889498 (Bug #99769)
-    	Upgraded p4java api version to 2019.1.1889202.
+	#1889498 (Bug #99769)
+		Upgraded p4java api version to 2019.1.1889202.
 
 Minor new functionality in 2019.1
 
-    #1828879 (Bug #99770)
-	Supports Unicode enabled Helix Core server.
+	#1828879 (Bug #99770)
+		Supports Unicode enabled Helix Core server.
 
 -------------------------------------------
 Bugs fixed in 2019.1
 
-    #1826838 (Bug #99772)
-	Fixed exception message being shown when user clicks on New --> Project --> From Perforce.
+	#1826838 (Bug #99772)
+		Fixed exception message being shown when user clicks on
+		New --> Project --> From Perforce.
 
 
 
