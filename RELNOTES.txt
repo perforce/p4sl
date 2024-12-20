@@ -1,7 +1,7 @@
                             Release Notes for
           P4SL, the Helix Core (Perforce) Plugin for Simulink and Matlab
  
-                            Version 2024.1
+                            Version 2024.2
 
 Introduction
 
@@ -63,6 +63,15 @@ Known Limitations
 	  <java-home>/lib/security/US_export_policy.jar
 
 -------------------------------------------
+Major new functionality in 2024.2 (2024.2/2698527) (2024/12/19)
+ 
+    #2697275, #2697618  (Job #122620)
+	Updated P4Java version to P4Java 2024.2.
+
+    #2697275  (Job #124074)
+	Upgraded P4SL to use Simulink R2024b APIs.
+
+-------------------------------------------
 Major new functionality in 2024.1 (2024.1/2620571) (2024/07/02)
  
     #2616732  (Job #121144 #121368)
@@ -75,7 +84,6 @@ Major new functionality in 2024.1 (2024.1/2620571) (2024/07/02)
     #2616732  (Job #121424 #121142)
 	Upgraded org.apache.commons:commons-compress:1.26.2 to
 	address CVEs: CVE-2024-25710 and CVE-2024-26308 
-    	
 
 -------------------------------------------
 Major new functionality in 2023.2 (2023.2/2561373) (2024/02/23)
