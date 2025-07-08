@@ -70,7 +70,7 @@ public class P4Uri {
 	}
 
 	/**
-	 * Parses a Perforce URI and returns a Properties object.
+	 * Parses a P4 URI and returns a Properties object.
 	 * 
 	 * @return
 	 */

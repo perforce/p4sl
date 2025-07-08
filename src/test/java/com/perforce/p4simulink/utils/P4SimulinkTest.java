@@ -83,7 +83,7 @@ public class P4SimulinkTest {
 		NullApplicationInteractor inter = new NullApplicationInteractor();
 		CMAdapter cmAdapter = factory.getAdapterForThisSandboxDir(root, inter);
 
-		// connect to Perforce and login
+		// connect to P4 and login
 		adapter = (P4Adapter) cmAdapter;
 		adapter.openConnection();
 		IOptionsServer server = adapter.getServer();

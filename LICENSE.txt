@@ -1,4 +1,4 @@
-Copyright (c) 2024, Perforce Software, Inc. All rights reserved.
+Copyright (c) 2025, Perforce Software, Inc. All rights reserved.
 
 
 BY INSTALLING OR DOWNLOADING THE SOFTWARE, YOU ARE ACCEPTING AND AGREEING TO THE TERMS OF
@@ -91,15 +91,15 @@ commons-exec-1.4.0.jar
     Copyright:   Copyright The Apache Software Foundation
     Reference:   https://commons.apache.org/proper/commons-exec/
 
-commons-io-2.16.1.jar
+commons-io-2.17.0.jar
   Licenses:
     License:     Apache 2.0
-    Reference:   https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.pom
+    Reference:   https://repo.maven.apache.org/maven2/commons-io/commons-io/2.17.0/commons-io-2.17.0.pom
     LicenseText: License Text Under Appendix
 
   Copyrights:
     Copyright:   Copyright 2002-2024 The Apache Software Foundation
-    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/143bd586-cad2-459f-a118-5c9eec655ee9
+    Reference:   https://index.whitesourcesoftware.com/gri/app/reader/resource/content/asString/57a467f1-c18e-4293-807f-683b2ac78980
     Author:      The Apache Software Foundation
 
     Copyright:   Copyright The Apache Software Foundation
@@ -188,11 +188,16 @@ log4j-core-2.23.1.jar
     Copyright:   Copyright The Apache Software Foundation
     Reference:   https://logging.apache.org/log4j/2.x/
 
-p4java-2024.1.2612262.jar
+p4java-2025.1.2785811.jar
   Licenses:
     License:     BSD 3
-    Reference:   https://repo.maven.apache.org/maven2/com/perforce/p4java/2024.1.2612262/p4java-2024.1.2612262.pom
+    Reference:   https://repo.maven.apache.org/maven2/com/perforce/p4java/2025.1.2785811/p4java-2025.1.2785811.pom
     LicenseText: License Text Under Appendix
+
+  Copyrights:
+    Copyright:   Copyright 2025 Perforce Software, Inc
+    Reference:   https://www.perforce.com/perforce/doc.current/user/p4java_eula.txt
+    Author:      Perforce Software, Inc
 
 
   Appendix:

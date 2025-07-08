@@ -53,7 +53,7 @@ public class P4Repository extends P4Interactor implements CMRepository {
 	}
 
 	/**
-	 * Open the Perforce Connection dialog to generate a Perforce URI.
+	 * Open the P4 Connection dialog to generate a P4 URI.
 	 *
 	 * This method is invoked when a user clicks on the 'Change...' button for
 	 * the 'Repository Path'
@@ -68,7 +68,7 @@ public class P4Repository extends P4Interactor implements CMRepository {
 
 		log.debug("browseForRepositoryPath() - {}", currentUri);
 
-		// Open Perforce connection dialog
+		// Open P4 connection dialog
 		URL connUrl = getClass().getResource("/icons/helix-core-48x48.png");
 		ImageIcon perforceIcon = new ImageIcon(connUrl);
 		P4ConnectionPanel s = new P4ConnectionPanel(currentUri);
@@ -116,14 +116,14 @@ public class P4Repository extends P4Interactor implements CMRepository {
 	}
 
 	/**
-	 * Setup the Perforce connection and/or populate.
+	 * Setup the P4 connection and/or populate.
 	 *
 	 * This method is invoked when a user clicks on the 'Retrieve' button. For
-	 * existing workspaces connect to Perforce and login for new workspaces
+	 * existing workspaces connect to P4 and login for new workspaces
 	 * connect and populate content.
 	 *
 	 * @param currentUri
-	 *            a Perforce Uri representing the connection
+	 *            a P4 Uri representing the connection
 	 * @param sandboxRoot
 	 *            the local root of the Workspace
 	 */
@@ -141,7 +141,7 @@ public class P4Repository extends P4Interactor implements CMRepository {
 		// Create a P4CONFIG file
 		new P4Config(sandboxRoot.toPath(), uri);
 
-		// Connect and login to Perforce
+		// Connect and login to P4
 		openConnection();
 		login(parentFrame);
 

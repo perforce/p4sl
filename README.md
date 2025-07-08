@@ -1,29 +1,29 @@
 [![Support](https://img.shields.io/badge/Support-Official-green.svg)](mailto:support@perforce.com)
 
-# Perforce P4SL 
+# P4SL 
 
 ## Overview
-P4SL is a Helix Core Plugin for Simulink and Matlab.
+P4SL is a P4 Plugin for Simulink and Matlab.
 
 ## Requirements
 - Matlab 2017b or higher.	
 
-- Perforce server at Release 2017.1 or higher.
+- P4 server at Release 2017.1 or higher.
 
 - Java: full standard JDK 8 or later.  Implementation as discussed in "Known Limitations" below.
 
-- SSL: unlimited strength JCE (Java Cryptography Extension) package for 256-bit encryption level SSL connection to a secure Perforce server.
+- SSL: unlimited strength JCE (Java Cryptography Extension) package for 256-bit encryption level SSL connection to a secure P4 server.
 
-- P4Java 2020.1 has changed the default TLS support to TLSv1.2 for use with Perforce server 2019.1 or greater this can be modified using the JVM option: ``java -DsecureSocketEnabledProtocols=TLSv1.2``
+- P4Java 2020.1 has changed the default TLS support to TLSv1.2 for use with P4 server 2019.1 or greater this can be modified using the JVM option: ``java -DsecureSocketEnabledProtocols=TLSv1.2``
 
 ## Known Limitations
 
 For Java versions prior to JDK 7, P4SL does not correctly implement or deal with Unix / Linux and Windows symbolic links.
 This is a known issue related to older (prior to JDK 7) versions of Java's inability to itself implement symbolic links.
 
-The Perforce server (2015.1 or higher) only supports 256-bit encryption.  Due to current US export control restrictions
+The P4 server (2015.1 or higher) only supports 256-bit encryption.  Due to current US export control restrictions
 for some countries, the standard JDK package only comes with 128-bit encryption level ciphers.  In order to use P4SL to
-connect to a secure Perforce server, those living in eligible countries may download the unlimited strength JCE (Java
+connect to a secure P4 server, those living in eligible countries may download the unlimited strength JCE (Java
 Cryptography Extension) version and replace the current default cryptography jar files with the unlimited strength files. 
 
 These files are located at:
@@ -33,17 +33,17 @@ These files are located at:
 ``<java-home>/lib/security/US_export_policy.jar``
 
 ## Documentation
-For more information please refer to the [Helix Plugin for MATLAB and Simulink (P4SL) Guide](https://www.perforce.com/manuals/p4sl/Content/P4SL/Home-p4SL.html)
+For more information please refer to the [P4 Plugin for MATLAB and Simulink (P4SL) Guide](https://www.perforce.com/manuals/p4sl/Content/P4SL/Home-p4SL.html)
 ## Support
 
-This project is maintained by Perforce Engineering and fully supported.  Pull requests will be managed by Perforce's engineering teams.  We will do our best to acknowledge these in a timely manner based on available capacity.  Issues will not be managed on GitHub.  All issues should be recorded via Perforce's standard support process (https://www.perforce.com/support/request-support).
+This project is maintained by P4 Engineering and fully supported.  Pull requests will be managed by P4's engineering teams.  We will do our best to acknowledge these in a timely manner based on available capacity.  Issues will not be managed on GitHub.  All issues should be recorded via P4's standard support process (https://www.perforce.com/support/request-support).
 
 ## Installation
 
-You can easily install Perforce plugin by downloading the P4SL matlab toolbox file from the [Perforce website](https://www.perforce.com/integrations).
+You can easily install P4 plugin by downloading the P4SL matlab toolbox file from the [P4 website](https://www.perforce.com/integrations).
 
 NOTE: If you installed an earlier version of P4SL using a jar file, you must edit the classpath.txt file to delete 
-the Perforce Integration lines and restart MATLAB before you install P4SL.
+the P4 Integration lines and restart MATLAB before you install P4SL.
 
 1. Start Matlab. Click *Open* then *Open....*  
 ![Open](docs/images/open-toolbox.png)
@@ -58,12 +58,12 @@ the Perforce Integration lines and restart MATLAB before you install P4SL.
 
 5. Restart Matlab.
 
-6. For Simulink projects: check that Perforce is loaded by going to:
+6. For Simulink projects: check that P4 is loaded by going to:
       `New > Projects > From Source Control`
-      and looking for Helix Core as one of the options in the drop-down.
+      and looking for P4 as one of the options in the drop-down.
 
 Alternately, you can install the plugin the old way by editing the `classpath.txt` file.
-You will need to download the *p4sl jar* file from [Perforce website](https://www.perforce.com).
+You will need to download the *p4sl jar* file from [P4 website](https://www.perforce.com).
 
 1. Start Matlab.  
 NOTE: Windows users may need to run MatLab as an administrator to make changes
@@ -78,13 +78,13 @@ to the `classpath.txt` file.
 
 4. Save the file, and *restart* Matlab.
 
-5. For Simulink projects: check that Perforce is loaded by going to:
+5. For Simulink projects: check that P4 is loaded by going to:
    `New > Projects > From Source Control`
-   and looking for Helix Core as one of the options in the drop-down.
+   and looking for P4 as one of the options in the drop-down.
 
-## Connecting to Perforce
+## Connecting to P4
 
-The Perforce integration uses a `.p4config` file in a project's root directory
+The P4 integration uses a `.p4config` file in a project's root directory
 ("sandbox" in Simulink) to store the user name, port, and (client) workspace.
 
 For non Simulink projects you *MUST* create a `.p4config` file the root directory
@@ -105,8 +105,8 @@ P4PORT=perforceserver:1666
 P4CLIENT=workspacename
 ```
 
-The three values are enough for the Perforce integration to attempt to 
-connect to the Perforce server. Once connected, a password will be requested
+The three values are enough for the P4 integration to attempt to 
+connect to the P4 server. Once connected, a password will be requested
 if required. If the specified workspace does not exist, P4Simulink will
 attempt to create it by prompting you for a depot path. The client's root
 will be set to the sandbox root (given in the Simulink project creation
@@ -134,17 +134,17 @@ In the *Project* tab click on *Use Source Control*, then *Add Project to Source 
 
 ![Add to Source Control](docs/images/new-proj4.png)
 
-Select Perforce from the Source Control Tool drop-down, then click *Change...*
+Select P4 from the Source Control Tool drop-down, then click *Change...*
 
-![Perforce Connection](docs/images/new-proj5.png)
+![P4 Connection](docs/images/new-proj5.png)
 
 Fill in the details, then click *Connect*. Upon successful connection, click *Ok*, then click *Convert*.
 Edit the View Mapping and click *OK*.
 
 ![View Mapping](docs/images/new-proj6.png)
 
-Click *OK* on the Get Revision dialog and you will see Perforce icons on the project files.
-In the *PROJECT* tab, click *Commit* and add the project to Perforce.
+Click *OK* on the Get Revision dialog and you will see P4 icons on the project files.
+In the *PROJECT* tab, click *Commit* and add the project to P4.
 
 
 ### Project from Source Control
@@ -153,31 +153,31 @@ To create a new Simulink Project select _New_, _Project_, then _From Simulink Te
 
 ![New Project](docs/images/new_project.png)
 
-Click on _Project from Helix Core_ or select _Helix Core_ from the _Projects_ --> _From Source Control_ dropdown.
+Click on _Project from P4_ or select _P4_ from the _Projects_ --> _From Source Control_ dropdown.
 
-Set the _Sandbox_ path to the location on your local machine to populate with the versioned files.  The specified path will your Perforce Workspace __root__.
+Set the _Sandbox_ path to the location on your local machine to populate with the versioned files.  The specified path will your P4 Workspace __root__.
 
 ![Sandbox Path](docs/images/sandbox_path.png)
 
-Next, set the _Repository path_, this requires a Perforce URI.  Click on the _Change..._ button to open a Connection Dialog to help generate the URI.
+Next, set the _Repository path_, this requires a P4 URI.  Click on the _Change..._ button to open a Connection Dialog to help generate the URI.
 
 Provide the Server, Username and Workspace and click _Connect_ to validate and generate the URI, then _OK_ to set the URI.
 
 ![Sandbox Path](docs/images/new-proj5.png)
 
-Click on the _Retrieve_ button to start the process of fetching the files from Perforce.  If the sandbox directory does not exist, you will be prompted to create it, select _Yes_.
+Click on the _Retrieve_ button to start the process of fetching the files from P4.  If the sandbox directory does not exist, you will be prompted to create it, select _Yes_.
 
 ![Sandbox Path](docs/images/retrieve.png)
 
-If you do not already have a valid ticket session with Perforce, you will be prompted for your password...
+If you do not already have a valid ticket session with P4, you will be prompted for your password...
 
 ![Sandbox Path](docs/images/password.png)
 
-If the Workspace specified in your connection does not exist you will be prompted to create one.  Fill out the Perforce Workspace setting, Stream or View as needed and click _OK_ to save.
+If the Workspace specified in your connection does not exist you will be prompted to create one.  Fill out the P4 Workspace setting, Stream or View as needed and click _OK_ to save.
 
 ![Sandbox Path](docs/images/new-proj6.png)
 
-Next, the plugin will request what changed to populate the workspace.  Select the change as needed, typically _Get latest revision_ is required.  Select _OK_ and Perforce will sync the specified files to your local MatLab sandbox.
+Next, the plugin will request what changed to populate the workspace.  Select the change as needed, typically _Get latest revision_ is required.  Select _OK_ and P4 will sync the specified files to your local MatLab sandbox.
 
 ![Sandbox Path](docs/images/get_change.png)
 
@@ -201,7 +201,7 @@ The file Status will now indicate a green tick...
 
 ![Sandbox Path](docs/images/add_files_4.png)
 
-Simulink will have created/updated project files on account of the change, under _Modified Files_. To submit these back to Perforce, open the _Current Folder_ view, right click, select _Source Control_ and click _View and Commit Changes..._. 
+Simulink will have created/updated project files on account of the change, under _Modified Files_. To submit these back to P4, open the _Current Folder_ view, right click, select _Source Control_ and click _View and Commit Changes..._. 
 
 ![Sandbox Path](docs/images/submit_proj.png)
 
@@ -211,19 +211,19 @@ Simulink will have created/updated project files on account of the change, under
 ## MatLab Only Quick Start
 
 You *MUST* have already created a `.p4config` file as discussed in 
-Installation section and created your Perforce client workspace using
+Installation section and created your P4 client workspace using
 one of our clients e.g. command line `p4` or GUI `P4V` client.
 
-MatLab automatically picks up the Perforce configuration as you
+MatLab automatically picks up the P4 configuration as you
 navigate files on your system.
 
 ![Files](docs/images/files.png)
 
-The 'Helix Core' column will indicate the file's state using a green circle 
+The 'P4' column will indicate the file's state using a green circle 
 (up-to-date) and blue square (edit) and so on...
 
 Use the (right click) context menu -> 'Source Control' on the file or folder 
-to apply Perforce actions.
+to apply P4 actions.
 
 ![Files](docs/images/context.png)
 
@@ -235,12 +235,12 @@ up under "Modified Files" and you must commit (submit) the file in order
 to complete the process.
 
 2. Clicking "Source Control --> Get File Lock" will open the specified file(s) for edit
-within Perforce. The file(s) will show up under "Modified Files" and you
+within P4. The file(s) will show up under "Modified Files" and you
 must commit (submit) the file in order to complete the process.
 
 3. Editing a file without clicking "Get File Lock" will do nothing
 unless the file is saved. Once the file has been saved and the Overwrite
-button is clicked (because Perforce keeps local files as read-only by
+button is clicked (because P4 keeps local files as read-only by
 default) the file will be opened for edit.
 
 4. Clicking "Get File Lock" will first retrieve the latest version of the

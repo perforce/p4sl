@@ -51,7 +51,7 @@ public class P4Server {
 	}
 
 	/**
-	 * Open a Perforce connection and set the server object.
+	 * Open a P4 connection and set the server object.
 	 *
 	 * @throws Exception
 	 */
@@ -123,7 +123,7 @@ public class P4Server {
 		// Get client name
 		String clientName = uri.get(P4ConfigType.P4CLIENT);
 		if (clientName.isEmpty()) {
-			throw new P4CMException("Perforce Workspace not defined");
+			throw new P4CMException("P4 Workspace not defined");
 		}
 
 		// Look for client, set as current and return

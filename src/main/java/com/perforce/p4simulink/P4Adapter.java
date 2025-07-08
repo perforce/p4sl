@@ -490,7 +490,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 	}
 
 	/**
-	 * Convenience method that opens files in Perforce for edit.
+	 * Convenience method that opens files in P4 for edit.
 	 *
 	 * @param files
 	 *            Files to edit
@@ -734,7 +734,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 	 * [p4 submit]
 	 *
 	 * @param files
-	 *            Files to submit to Perforce
+	 *            Files to submit to P4
 	 * @param description
 	 *            Description for this commit.
 	 * @throws com.mathworks.cmlink.api.ConfigurationManagementException
@@ -796,7 +796,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 	 * Check in a single file with the given description.
 	 *
 	 * @param file
-	 *            File to submit to Perforce.
+	 *            File to submit to P4.
 	 * @param description
 	 *            Description for this commit.
 	 * @throws ConfigurationManagementException
@@ -828,7 +828,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 	@Override
 	public Collection<String> getForbiddenFileNames() {
 		Collection<String> names = new HashSet<>();
-		// Perforce-specific forbidden patterns
+		// P4-specific forbidden patterns
 		names.add(".*@.*");
 		names.add(".*#.*");
 		names.add(".*\\*.*");
@@ -922,7 +922,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 				IFileSpec dfile = entry.getKey();
 				List<IFileRevisionData> data = entry.getValue();
 
-				// If no history found, perforce returns with error and data is null
+				// If no history found, p4 returns with error and data is null
 				if (data != null) {
 					for (IFileRevisionData d : data) {
 
@@ -1186,7 +1186,7 @@ public class P4Adapter extends P4Interactor implements CMAdapter {
 					}
 				});
 
-		// line separation after Perforce widgets
+		// line separation after P4 widgets
 		widgetFactory.createLineBreak();
 	}
 

@@ -1,6 +1,6 @@
 # Open Source Code of Conduct
 
-This code of conduct outlines expectations for participation in Perforce-managed open source communities, as well as steps for reporting unacceptable behavior. We are committed to providing a welcoming and inspiring community for all. People violating this code of conduct may be banned from the community.
+This code of conduct outlines expectations for participation in P4-managed open source communities, as well as steps for reporting unacceptable behavior. We are committed to providing a welcoming and inspiring community for all. People violating this code of conduct may be banned from the community.
 
 Our open source communities strive to:
 

@@ -1,13 +1,13 @@
                             Release Notes for
-          P4SL, the Helix Core (Perforce) Plugin for Simulink and Matlab
+          	    P4SL, the P4 Plugin for Simulink and Matlab
  
-                            Version 2024.2
+                            Version 2025.1
 
 Introduction
 
-	P4SL is a Helix Core Plugin for Simulink and Matlab.
+	P4SL is a P4 Plugin for Simulink and Matlab.
 
-	Perforce numbers releases YYYY.R.CCCCC, for example, 2020.1.1849373.
+	P4 numbers releases YYYY.R.CCCCC, for example, 2020.1.1849373.
 	YYYY is the year; R is the release of that year; CCCCC is the
 	bug fix change level.  Each bug fix in these release notes is
 	marked by its change number.  Any build includes (1) all bug fixes
@@ -16,25 +16,38 @@ Introduction
 
 	Please send all feedback to support@perforce.com
 
+--------------------------------------------------------------------------
+
+Important Product Rebrand Notice
+
+    Helix Core is now P4
+    Perforce has a new look and logo that reflects our place in DevOps
+    workflows. As part of these changes, Helix Core is now P4. Name updates
+    and new icons to align with the P4 branding will be rolled out soon.
+    To learn more, see:
+        https://www.perforce.com/blog/vcs/introducing-the-P4-platform
+
+--------------------------------------------------------------------------
+
 Requirements
 
 	* Matlab 2017b or higher.	
 
-	* Perforce server at Release 2017.1 or higher.
+	* P4 server at Release 2017.1 or higher.
 
 	* Java: full standard JDK 11 or later.  Implementation as
 	  discussed in "Known Limitations" below.
 
 	* SSL: unlimited strength JCE (Java Cryptography Extension) package for
-	  256-bit encryption level SSL connection to a secure Perforce server.
+	  256-bit encryption level SSL connection to a secure P4 server.
 
 SSL and Trust
 
-	Perforce server 2017.1 or higher supports 256-bit SSL connections
+	P4 server 2017.1 or higher supports 256-bit SSL connections
 	and trust establishment via accepting the fingerprint of the SSL
 	certificate's public key. The standard JDK comes with 128-bit
 	encryption level ciphers. In order to use P4Java to connect to
-	a secure Perforce server, you must download and install the
+	a secure P4 server, you must download and install the
 	unlimited strength JCE package for your JDK version.
 
 Documentation
@@ -44,16 +57,16 @@ Documentation
 Installation
 
 	Download either matlab toolbox file (p4sl.mltbx) or p4sl.jar file
-	from the Perforce website. For simple instructions on how to install and use,
+	from the P4 website. For simple instructions on how to install and use,
 	please refer to the README.MD or plugin guide.
 
 Known Limitations
 
-	* The Perforce server (2015.1 or higher) only supports 256-bit
+	* The P4 server (2015.1 or higher) only supports 256-bit
 	  encryption.  Due to current US export control restrictions
 	  for some countries, the standard JDK package only comes with
 	  128-bit encryption level ciphers.  In order to use P4SL to
-	  connect to a secure Perforce server, those living in eligible
+	  connect to a secure P4 server, those living in eligible
 	  countries may download the unlimited strength JCE (Java
 	  Cryptography Extension) version and replace the current
 	  default cryptography jar files with the unlimited strength
@@ -61,6 +74,15 @@ Known Limitations
 
 	  <java-home>/lib/security/local_policy.jar
 	  <java-home>/lib/security/US_export_policy.jar
+
+-------------------------------------------
+Major new functionality in 2025.1 (2025.1/2790053) (2025/06/30)
+ 
+    #2786330 (Job #125788)
+	Updated P4Java version to P4Java 2025.1.
+
+    #2785717 (Job #119724)
+	Bug fix P4SL version mismatch on add-ons page in Matlab
 
 -------------------------------------------
 Major new functionality in 2024.2 (2024.2/2698527) (2024/12/19)
