@@ -28,12 +28,12 @@ configurations {
 // and configurations.runtimeClasspath respectively
 dependencies {
 	implementation files( 'libs/api.jar', 'libs/util.jar' )
-	implementation 'com.perforce:p4java:2025.1.2785811' 
+	implementation 'com.perforce:p4java:2025.2.2872146' 
 	implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
-	implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+	implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
     implementation 'commons-io:commons-io:2.15.1'
     implementation 'org.apache.commons:commons-exec:1.4.0'
-    implementation 'org.apache.commons:commons-compress:1.26.2'
+    implementation 'org.apache.commons:commons-compress:1.28.0'
     testImplementation 'junit:junit:4.13.2'
 }
 

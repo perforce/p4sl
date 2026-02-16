@@ -1,7 +1,7 @@
                             Release Notes for
           	    P4SL, the P4 Plugin for Simulink and Matlab
  
-                            Version 2025.1
+                            Version 2025.2
 
 Introduction
 
@@ -31,9 +31,13 @@ Important Product Rebrand Notice
 
 Requirements
 
-	* Matlab 2017b or higher.	
+	* Matlab 2023b or higher (issues encountered on the older versions 
+	will be handled on a best-effort basis).
 
-	* P4 server at Release 2017.1 or higher.
+	* P4 server at Release 2022.2 or higher (previous versions may continue 
+	to work, but they are not actively tested or officially supported. 
+	Issues encountered on these older versions will be handled on a 
+	best-effort basis).
 
 	* Java: full standard JDK 11 or later.  Implementation as
 	  discussed in "Known Limitations" below.
@@ -43,7 +47,7 @@ Requirements
 
 SSL and Trust
 
-	P4 server 2017.1 or higher supports 256-bit SSL connections
+	P4 server 2022.2 or higher supports 256-bit SSL connections
 	and trust establishment via accepting the fingerprint of the SSL
 	certificate's public key. The standard JDK comes with 128-bit
 	encryption level ciphers. In order to use P4Java to connect to
@@ -74,6 +78,17 @@ Known Limitations
 
 	  <java-home>/lib/security/local_policy.jar
 	  <java-home>/lib/security/US_export_policy.jar
+
+-------------------------------------------
+Major new functionality in 2025.2 (2025.2/2889250) (2026/02/04)
+ 
+    #2880128 (Job #130556, #130557)
+    Upgraded org.apache.commons:commons-compress:1.28.0 and 
+    org.apache.logging.log4j:log4j-core:2.25.3 to address
+    CVEs: CVE-2025-48924 and CVE-2025-68161 respectively
+
+    #2879897 (Job #128791)
+	Updated P4Java version to P4Java 2025.2.
 
 -------------------------------------------
 Major new functionality in 2025.1 (2025.1/2790053) (2025/06/30)

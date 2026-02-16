@@ -6,11 +6,11 @@
 P4SL is a P4 Plugin for Simulink and Matlab.
 
 ## Requirements
-- Matlab 2017b or higher.	
+- Matlab 2023b or higher.	
 
-- P4 server at Release 2017.1 or higher.
+- P4 server at Release 2022.2 or higher.
 
-- Java: full standard JDK 8 or later.  Implementation as discussed in "Known Limitations" below.
+- Java: full standard JDK 11 or later.  Implementation as discussed in "Known Limitations" below.
 
 - SSL: unlimited strength JCE (Java Cryptography Extension) package for 256-bit encryption level SSL connection to a secure P4 server.
 
